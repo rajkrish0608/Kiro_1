@@ -1,0 +1,128 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.header h2 {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sortButtons {
+    display: flex;
+    gap: var(--space-2);
+    background: var(--bg-tertiary);
+    padding: var(--space-1);
+    border-radius: var(--radius-md);
+}
+
+.sortButton {
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.sortButton:hover {
+    color: var(--text-primary);
+}
+
+.sortButton.active {
+    background: var(--accent-primary);
+    color: white;
+}
+
+.newCommentForm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.loginPrompt {
+    padding: var(--space-4);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-8);
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--bg-tertiary);
+    border-top-color: var(--accent-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error {
+    padding: var(--space-4);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--status-error);
+    border-radius: var(--radius-md);
+    color: var(--status-error);
+    text-align: center;
+}
+
+.empty {
+    padding: var(--space-8);
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sortButtons {
+        width: 100%;
+    }
+
+    .sortButton {
+        flex: 1;
+        text-align: center;
+    }
+}

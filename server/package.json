@@ -1,0 +1,46 @@
+{
+    "name": "whistleblower-server",
+    "version": "1.0.0",
+    "description": "Anonymous Whistleblower Platform API Server",
+    "main": "dist/index.js",
+    "scripts": {
+        "dev": "tsx watch src/index.ts",
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "migrate": "tsx src/scripts/migrate.ts",
+        "lint": "eslint src --ext .ts",
+        "format": "prettier --write \"src/**/*.ts\""
+    },
+    "keywords": [
+        "whistleblower",
+        "api",
+        "fastify"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@fastify/cookie": "^11.0.2",
+        "@fastify/cors": "^11.1.0",
+        "@fastify/helmet": "^13.0.2",
+        "@fastify/jwt": "^10.0.0",
+        "@fastify/multipart": "^9.3.0",
+        "@fastify/rate-limit": "^10.3.0",
+        "@types/jsonwebtoken": "^9.0.10",
+        "bcrypt": "^5.1.1",
+        "dotenv": "^16.4.1",
+        "fastify": "^5.6.2",
+        "jsonwebtoken": "^9.0.2",
+        "pg": "^8.11.3"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.2",
+        "@types/node": "^20.11.16",
+        "@types/pg": "^8.11.0",
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "@typescript-eslint/parser": "^6.21.0",
+        "eslint": "^8.56.0",
+        "prettier": "^3.2.5",
+        "tsx": "^4.7.1",
+        "typescript": "^5.3.3"
+    }
+}

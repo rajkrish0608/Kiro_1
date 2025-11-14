@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.select {
+    width: 100%;
+    padding: var(--space-3);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    background: var(--bg-primary);
+}
+
+.select.error {
+    border-color: var(--status-error);
+}
+
+.errorText {
+    font-size: var(--text-sm);
+    color: var(--status-error);
+}
+
+.helperText {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
