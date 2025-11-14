@@ -19,7 +19,7 @@ import {
 /**
  * Convert User to PublicUser (remove sensitive fields)
  */
-function toPublicUser(user: User): PublicUser {
+export function toPublicUser(user: User): PublicUser {
     return {
         id: user.id,
         username: user.username,

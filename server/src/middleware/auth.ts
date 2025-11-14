@@ -1,6 +1,5 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { verifyAccessToken } from '../utils/auth';
-import { JWTPayload } from '../types/auth';
 
 // Extend FastifyRequest to include user
 declare module 'fastify' {
@@ -91,7 +90,7 @@ export async function authenticateAdmin(
  */
 export async function optionalAuthenticate(
     request: FastifyRequest,
-    reply: FastifyReply
+    _reply: FastifyReply
 ): Promise<void> {
     try {
         const authHeader = request.headers.authorization;

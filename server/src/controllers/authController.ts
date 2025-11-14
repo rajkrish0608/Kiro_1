@@ -64,7 +64,7 @@ export async function getMeHandler(request: FastifyRequest, reply: FastifyReply)
             });
         }
 
-        const user = await getUserById(request.user.userId);
+        const user = await getUserById(request.user.id);
 
         if (!user) {
             return reply.status(404).send({
@@ -92,7 +92,7 @@ export async function getMeHandler(request: FastifyRequest, reply: FastifyReply)
  * Logout user
  * POST /api/auth/logout
  */
-export async function logoutHandler(request: FastifyRequest, reply: FastifyReply) {
+export async function logoutHandler(_request: FastifyRequest, reply: FastifyReply) {
     // In a stateless JWT system, logout is handled client-side by removing the token
     // This endpoint exists for consistency and future token blacklisting if needed
     return reply.status(200).send({ success: true });
