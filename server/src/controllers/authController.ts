@@ -11,10 +11,30 @@ export async function registerHandler(
     reply: FastifyReply
 ) {
     try {
+        // Log incoming registration attempt
+        console.info('Register attempt', {
+            username: request.body.username,
+            hasPassphrase: !!request.body.passphrase,
+            timestamp: new Date().toISOString()
+        });
+
         const result = await register(request.body);
+
+        console.info('Registration successful', {
+            userId: result.user.id,
+            username: result.user.username
+        });
+
         return reply.status(201).send(result);
     } catch (error) {
         const message = error instanceof Error ? error.message : 'Registration failed';
+
+        console.error('Registration failed', {
+            error: message,
+            username: request.body.username,
+            timestamp: new Date().toISOString()
+        });
+
         return reply.status(400).send({
             error: {
                 code: 'VALIDATION_ERROR',
@@ -34,10 +54,28 @@ export async function loginHandler(
     reply: FastifyReply
 ) {
     try {
+        console.info('Login attempt', {
+            username: request.body.username,
+            timestamp: new Date().toISOString()
+        });
+
         const result = await login(request.body);
+
+        console.info('Login successful', {
+            userId: result.user.id,
+            username: result.user.username
+        });
+
         return reply.status(200).send(result);
     } catch (error) {
         const message = error instanceof Error ? error.message : 'Login failed';
+
+        console.error('Login failed', {
+            error: message,
+            username: request.body.username,
+            timestamp: new Date().toISOString()
+        });
+
         return reply.status(401).send({
             error: {
                 code: 'AUTH_INVALID',
