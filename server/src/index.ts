@@ -54,8 +54,9 @@ async function start() {
 
         // Rate limiting
         await server.register(rateLimit, {
-            max: parseInt(process.env.RATE_LIMIT_MAX || '100', 10),
-            timeWindow: parseInt(process.env.RATE_LIMIT_WINDOW || '60000', 10),
+            max: parseInt(process.env.RATE_LIMIT_MAX || '1000', 10), // Increased for development
+            timeWindow: parseInt(process.env.RATE_LIMIT_WINDOW || '60000', 10), // 1 minute
+            skipOnError: true, // Don't count errors against rate limit
         });
 
         // Health check route

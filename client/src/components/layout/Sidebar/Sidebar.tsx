@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Icon } from '../../ui/Icon/Icon';
+import { Icon, IconName } from '../../ui/Icon/Icon';
 import { Button } from '../../ui/Button/Button';
 import styles from './Sidebar.module.css';
 
@@ -11,7 +11,7 @@ interface SidebarProps {
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
     const location = useLocation();
 
-    const navItems = [
+    const navItems: Array<{ path: string; icon: IconName; label: string }> = [
         { path: '/', icon: 'home', label: 'Home' },
         { path: '/search', icon: 'search', label: 'Search' },
         { path: '/communities', icon: 'users', label: 'Communities' },

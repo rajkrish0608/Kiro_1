@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode, ElementType } from 'react';
+import type { ButtonHTMLAttributes, ReactNode, ElementType } from 'react';
 import styles from './Button.module.css';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

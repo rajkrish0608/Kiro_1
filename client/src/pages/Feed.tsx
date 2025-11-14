@@ -35,12 +35,16 @@ export function Feed() {
                 setPosts(result.posts);
             }
 
-            setHasMore(result.hasMore);
+            // If no posts returned or less than limit, we've reached the end
+            setHasMore(result.hasMore && result.posts.length > 0);
         } catch (err) {
             if (err instanceof ApiError) {
                 setError(err.message);
+                // Stop loading more on error
+                setHasMore(false);
             } else {
                 setError('Failed to load posts. Please try again.');
+                setHasMore(false);
             }
         } finally {
             setIsLoading(false);
@@ -54,6 +58,11 @@ export function Feed() {
 
     // Infinite scroll observer
     useEffect(() => {
+        // Don't set up observer if we don't have more posts or are currently loading
+        if (!hasMore || isLoading) {
+            return;
+        }
+
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting && hasMore && !isLoading) {

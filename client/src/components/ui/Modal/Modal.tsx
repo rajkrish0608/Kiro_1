@@ -1,8 +1,9 @@
-import { ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
+import type { ReactNode } from 'react';
 import { Icon } from '../Icon/Icon';
 import styles from './Modal.module.css';
 
-interface ModalProps {
+export interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
     title: string;

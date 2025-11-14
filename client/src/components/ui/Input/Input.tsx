@@ -1,4 +1,5 @@
-import { InputHTMLAttributes, TextareaHTMLAttributes, forwardRef } from 'react';
+import { forwardRef } from 'react';
+import type { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 import styles from './Input.module.css';
 
 interface BaseInputProps {

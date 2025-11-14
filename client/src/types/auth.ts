@@ -3,6 +3,7 @@ export interface User {
     username: string;
     karma: number;
     createdAt: string;
+    role?: string;
 }
 
 export interface RegisterRequest {
@@ -32,5 +33,3 @@ export interface AuthContextType {
     register: (data: RegisterRequest) => Promise<{ recoveryKey: string }>;
     logout: () => Promise<void>;
 }
-
-export type { User, RegisterRequest, LoginRequest, AuthResponse, AuthContextType };
